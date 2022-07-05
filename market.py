@@ -1,15 +1,16 @@
-from flask import Flask
+from flask import *
 
 app = Flask(__name__)
 
 @app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+@app.route("/home")
+def home_page():
+    return render_template('home.html')
 
-
-@app.route("/about/<username>")
-def about(username):
-    return f"<h1>Hello, {username}!</h1>"
-
+@app.route('/market')
+def market():
+    return render_template('market.html')
 if __name__=='__main__':
-    app.run(port=4000)
+    app.run(port=4000, debug=True)
+    
+    
