@@ -1,10 +1,12 @@
 from flask import *
+from flask_sqlalchemy import *
 
 app = Flask(__name__)
+db = SQLAlchemy()
 
 @app.route("/")
 @app.route("/home")
-def home_page():
+def home():
     return render_template('home.html')
 
 @app.route('/market')
